@@ -1,7 +1,10 @@
 ### 基于[vue-draggable-resizable](https://github.com/mauricius/vue-draggable-resizable) 扩展 旋转功能 
 
 
-<p align="center"><img src="https://rawgit.com/mauricius/vue-draggable-resizable/v1/docs/resources/logo.png" alt="logo"></p>
+<p align="center"><img src="https://rawgit.com/mauricius/vue-draggable-resizable/v1/docs/resources/logo.png" alt="logo">
+<img src="https://angular001.oss-cn-beijing.aliyuncs.com/svg/vvvv.png" alt="logo">
+
+</p>
 <h1 align="center">VueDraggableResizable 2</h1>
 
 [![Latest Version on NPM](https://img.shields.io/npm/v/vue-draggable-resizable.svg?style=flat-square)](https://npmjs.com/package/vue-draggable-resizable)
