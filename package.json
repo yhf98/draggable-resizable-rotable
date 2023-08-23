@@ -1,6 +1,6 @@
 {
   "name": "draggable-resizable-rotable",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "author": "Yao Hengfeng <maurizio.bonani@gmail.com>",
   "main": "dist/VueDraggableResizable.umd.min.js",
   "unpkg": "dist/VueDraggableResizable.umd.min.js",

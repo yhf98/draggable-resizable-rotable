@@ -15,7 +15,7 @@
     @touchstart="elementTouchDown"
   >
     <div
-      v-for="handle in actualHandles"
+      v-for="handle in  hasRotation ? actualHandles : actualHandles.filter(item => item !== 'rr')"
       :key="handle"
       :class="[
         classNameHandle,
@@ -184,6 +184,14 @@ export default {
       type: Number,
       default: 0
     },
+    rotate: {
+      type: Number,
+      default: 0
+    },
+    hasRotation: {
+      type: Boolean,
+      default: false
+    },
     z: {
       type: [String, Number],
       default: 'auto',
@@ -264,11 +272,9 @@ export default {
       top: this.y,
       right: null,
       bottom: null,
-
       width: null,
       height: null,
-
-      angle: 0,
+      angle: this.rotate,
 
       widthTouched: false,
       heightTouched: false,
@@ -318,6 +324,7 @@ export default {
 
     this.right = this.parentWidth - this.width - this.left
     this.bottom = this.parentHeight - this.height - this.top
+    this.angle = this.rotate
 
     if (this.active) {
       this.$emit('activated')
@@ -773,6 +780,14 @@ export default {
 
       if (this.handle === 'rr') {
         this.angle = (Math.atan2(tmpDeltaY, tmpDeltaX) * 180) / Math.PI
+        this.$emit(
+          'resizing',
+          this.left,
+          this.top,
+          this.width,
+          this.height,
+          this.angle
+        )
       } else {
         if (!this.widthTouched && tmpDeltaX) {
           this.widthTouched = true
@@ -938,7 +953,6 @@ export default {
     },
     actualHandles () {
       if (!this.resizable) return []
-
       return this.handles
     },
     computedWidth () {
@@ -1059,6 +1073,9 @@ export default {
       }
 
       this.changeHeight(val)
+    },
+    rotate (val) {
+      this.angle = val
     }
   }
 }
