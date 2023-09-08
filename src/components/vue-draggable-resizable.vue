@@ -15,7 +15,7 @@
     @touchstart="elementTouchDown"
   >
     <div
-      v-for="handle in  hasRotation ? actualHandles : actualHandles.filter(item => item !== 'rr')"
+      v-for="handle in  (hasRotation ? actualHandles : actualHandles.filter(item => item !== 'rr'))"
       :key="handle"
       :class="[
         classNameHandle,
